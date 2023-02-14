@@ -1,0 +1,30 @@
+    
+
+    .signupbody{
+        background-color: rgb(114, 180, 189);
+        width:100%;
+        height:100%;
+        padding: 0;
+        margin:0;
+    }
+    .signupform{
+    width: 40%;
+    border-radius: 20px;
+    background-color: white;
+     
+      
+    }
+    .c1{
+      margin-right:20px;
+    }
+ 
+    .img1{
+      width:50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .heading{
+        font-family: 'Prompt', sans-serif; 
+        background-color: white; 
+ 
+    }
