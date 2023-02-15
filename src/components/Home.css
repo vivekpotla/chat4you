@@ -1,5 +1,5 @@
 .home {
-    background-color:#252d02;
+    background-color:#334d5e;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
 .messages{
     display: flex;
     cursor: pointer;
-    padding: 10px;
+    padding: 3px;
     gap: 10px;
     align-items: center;
     border-bottom: 1px solid white;
