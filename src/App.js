@@ -5,6 +5,7 @@ import {Route ,Routes} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
+      {/* routing added */}
     <Routes>
     <Route path="/" element={<Login/>} />
       <Route path="/login" element={<Login/>} />
