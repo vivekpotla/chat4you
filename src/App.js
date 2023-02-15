@@ -1,14 +1,15 @@
 import './App.css';
 import SignUp from './components/SignUp';
+import { Home } from './components/Home';
 import Login from './components/Login';
 import {Route ,Routes} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      {/* routing added */}
     <Routes>
     <Route path="/" element={<Login/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/home" element={<Home/>} />
       <Route path="signup" element={<SignUp/>} />
     </Routes>
     </div>

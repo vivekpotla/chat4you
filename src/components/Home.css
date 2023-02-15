@@ -1,0 +1,41 @@
+.home {
+    background-color:#FFF5E4;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+.hcontainer{
+    border: 1px solid aliceblue ;
+    width: 65%;
+    height: 80%;
+    display:flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.chat{
+ flex:2;
+}
+.sidebar{
+    flex:1;
+    border-right: 1px solid white;
+    background-color: #FFD1D1;
+}
+
+.sidenavbar{
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: #FF9494;
+}
+.logo{
+    font-size: large;
+}
+.user{
+    gap: 10px;
+    display: flex;
+}
