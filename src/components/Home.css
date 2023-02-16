@@ -56,11 +56,14 @@
 }
 
 /* sidebar search styles */
-.searchinput{
+.searchinput ,.search{
     background-color: transparent;
     border: none;
     color: black;
-    margin: 5px;
+    margin: 2px;
+    width: 100%;
+    padding: 5px;
+    outline: none;
 }
 .searchimg{
     width: 50px;
@@ -68,6 +71,7 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
 .chats{
     display: flex;
     cursor: pointer;
