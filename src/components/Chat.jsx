@@ -10,7 +10,10 @@ function chat() {
   return (
     <div className='chat'>
       <div className="chatInfo">
-        <span>Vivek Chowdary</span>
+        <div className="d-flex gap-3 my-auto">
+        <img src='https://i.pinimg.com/236x/01/4b/ba/014bba6c5196101bf43042c820b92db0.jpg' className='sender-img ' />
+        <span className='my-auto'>Vivek Chowdary</span>
+        </div>
         <div className='chatIcons d-flex gap-4'>
           <FaVideo style={{cursor:"pointer"}}/>
           <AiOutlineUserAdd style={{cursor:"pointer"}}/>

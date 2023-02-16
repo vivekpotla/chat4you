@@ -65,3 +65,12 @@
     border-color: #2f2d52;
     background-color: #ddddf7;
 }
+
+
+/* chat.jsx */
+.sender-img{
+    width: 33px;
+    height: 33px;
+    object-fit: cover;
+    border-radius: 50%;
+}
