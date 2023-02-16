@@ -4,11 +4,11 @@ function Input() {
   return (
     <div className='input'>
       <input type="text"  placeholder='Type Something'/>
-      <div className='send'>
+      <div className='send '>
         <GrGallery style={{cursor:"pointer"}}/>
         <input type="file" name="" id="file" style={{display:"none"}}/>
-        <label htmlFor='file'>
-          <GrAttachment style={{cursor:"pointer"}}/>
+        <label htmlFor='file' className='mb-1'>
+          <GrAttachment style={{cursor:"pointer"}} className='my-auto'/>
         </label>
         <button className='sendButton'>Send</button>
       </div>
