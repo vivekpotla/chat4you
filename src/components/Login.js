@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 function Login() {
   return (
     <div className='loginbody pt-5 pb-5'>
+      {/* To be removed after development */}
+      <span><Link to='/home' >GO to Home</Link></span>
     <div className="text-center lead">
       <h1 className='heading w-25 mx-auto border rounded-pill '>chat4you</h1>
     
@@ -36,6 +38,7 @@ function Login() {
       </div>
 
     </form>
+    
 </div>
   )
 }
