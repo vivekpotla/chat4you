@@ -15,8 +15,6 @@
     overflow: scroll;
     scrollbar-width: auto;
     scrollbar-color: #79797b #ffffff;
-    overflow-x: hidden;
-    scroll-snap-type: none;
 }
 *::-webkit-scrollbar {
     width: 8px;
