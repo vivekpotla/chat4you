@@ -22,6 +22,7 @@
 .messageInfo{
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: gray;
     font-weight: 30px;
 }

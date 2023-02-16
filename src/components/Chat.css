@@ -11,9 +11,15 @@
     background-color: #ddddf7;
     padding: 10px;
     height:80%;
+    width:100%;
     overflow: scroll;
+<<<<<<< Updated upstream
     scrollbar-width: auto;
     scrollbar-color: #79797b #ffffff;
+=======
+    overflow-x: hidden;
+    scroll-snap-type: none;
+>>>>>>> Stashed changes
 }
 *::-webkit-scrollbar {
     width: 8px;
