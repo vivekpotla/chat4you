@@ -1,5 +1,5 @@
 .home {
-    background-color:#252d02;
+    background-color:#040a2e;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@
    }
    
 .hcontainer{
-    border: 1px solid rgb(255, 255, 255) ;
+    border: 1px solid #B9E0FF ;
     width: 65%;
     height: 80%;
     display:flex;
@@ -20,7 +20,7 @@
 .sidebar{
     flex:1;
     border-right: 1px solid white;
-    background-color: #FFD1D1;
+    background-color: #DFF6FF;
 }
 /* side navbar styles */
 .sidenavbar{
@@ -30,7 +30,7 @@
     height: 50px;
     padding: 10px;
     justify-content: space-between;
-    background-color: #FF9494;
+    background-color: #5D8BF4;
 }
 .logo{
     font-size: large;
@@ -71,14 +71,14 @@
 .messages{
     display: flex;
     cursor: pointer;
-    padding: 10px;
+    padding: 1px;
     gap: 10px;
     align-items: center;
     border-bottom: 1px solid white;
 }
 
 .messages:hover{
-    background-color: #FF9494;
+    background-color: #7579E7;
 }
 .username{
  font-size: 15px;
