@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import './Login.css'
 import Alert from 'react-bootstrap/Alert';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../firebase.js'
 import { GoAlert } from "react-icons/go";
+
 function Login() {
 
   const [err, setErr] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+  let navigate=useNavigate()
   const onFormSubmit = (userCredObj) => {
       let email= userCredObj.email;
       let password=userCredObj.password
@@ -20,7 +21,10 @@ function Login() {
         // Signed in successfully
         //console.log("User logged in " , userCredential)
         const user = userCredential.user;
-        console.log("Logged in User is " , user)
+        console.log("Login successful \nLogged in User is " , user.displayName)
+        alert(`Welcome back ${user.displayName} ..!`)
+        navigate('/home')
+       
         // ...
 
       })
@@ -53,19 +57,24 @@ function Login() {
     <form className="signupform  m-5 mx-auto border border-2 border-secondary p-5 " onSubmit={handleSubmit(onFormSubmit)} >
 
    
-    {/* Username and Mobile number */}
-      <div className="row mb-5 gap-5">
-        <div className="col-sm-12 form-floating">
-          <input type="text" className="form-control border border-2 border-secondary" placeholder="email" {...register("email",{required:true})}/>
-          <label  className="form-label ms-3">Email</label>
+    {/* Username and Password */}
+       <div className="row mb-4 m-2">
+          <div className=" form-floating ">
+            <input type="email" className="form-control border border-2 border-secondary" id="email" placeholder="email" {...register("email",{required:true})}/>
+            <label  className="form-label ms-3">Email</label>
+          </div>
+          {errors.email?.type === 'required' && <p role="alert" className='text-danger'>* Email is required</p>}
+         </div>
+        <div className="row mb-4 m-2">
+          <div className=" form-floating">
+            <input type="password" className="form-control border border-2 border-secondary" placeholder="password"  {...register("password",{required:true})}/>
+            <label  className="form-label ms-3">Password</label>
+            {errors.password?.type === 'required' && <p role="alert" className='text-danger'>* Password is required</p>}
+          </div>
+          
         </div>
-        <div className="col-sm-12 form-floating">
-          <input type="password" className="form-control border border-2 border-secondary" placeholder="password" {...register("password",{required:true})}/>
-          <label  className="form-label ms-3">Password</label>
-        </div>
-      </div>
 
-      <div className="mt-5 text-end">
+      <div className="mt-4 text-end">
        Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm btn-primary  ">SignUp</button></Link>
       </div>
 

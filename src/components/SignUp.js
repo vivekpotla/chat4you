@@ -7,7 +7,9 @@ import Alert from 'react-bootstrap/Alert';
 import {auth,storage ,db} from '../firebase.js'
 import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { AiOutlinePicture,AiOutlineMail } from "react-icons/ai";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc } from "firebase/firestore";
+import 'firebase/firestore' 
+import 'firebase/auth'
 function SignUp() {
   let navigate= useNavigate();
   const [err,setErr] = useState(false)
@@ -18,61 +20,58 @@ function SignUp() {
     const email = userCredObj.email
     const password = userCredObj.password
     const file = userCredObj.file
+    const phoneNumber=userCredObj.phoneNumber
     console.log(userCredObj);
     try{
-          let res = await createUserWithEmailAndPassword(auth, userCredObj.email, userCredObj.password)
-          //userCredentialObject
-
-                  const storageRef =  ref(storage, displayName`);
-                  const uploadTask =await uploadBytesResumable(storageRef, userCredObj.file);
-
-            // Register three observers:
-            // 1. 'state_changed' observer, called any time the state changes
-            // 2. Error observer, called on failure
-            // 3. Completion observer, called on successful completion
-            uploadTask.then(
-              
-              () => {
-                // Handle successful uploads on complete
-                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                     try{ 
-                     await updateProfile(res.user,{
-                        displayName,
-                        photoURL :downloadURL,
-
-                      })
-                      await setDoc(doc(db,"users",res.user.uid),{
-                        uid: res.user.uid,
-                        displayName,
-                        email,
-                        photoURL: downloadURL,
-                      })  
-                    }
-                    catch(err)
-                    {
-                      console.log("Error :" , err)
-                      setErr(err.code)
-                    }
-                      
-                });
-              });
-                
-
-
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      
               
             //      //Object.keys(res.user)
             //         //  ['providerId', 'proactiveRefresh', 'reloadUserInfo', 'reloadListener', 
             //         // 'uid', 'auth', 'stsTokenManager', 'accessToken', 'displayName', 'email', 'emailVerified', 
             //         // 'phoneNumber', 'photoURL', 'isAnonymous', 'tenantId', 'providerData', 'metadata']
-          setErr(false);
-          //navigates to login page after signing up
           
+
+      const storageRef = ref(storage, `${displayName}.jpg`);
+
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            //console.log("Image url : " ,downloadURL)
+            //Update profile
+            await updateProfile(res.user, {
+              displayName,
+              photoURL: downloadURL,
+              phoneNumber
+            });
+            //create user on firestore
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              phoneNumber,
+              email,
+              photoURL: downloadURL,
+            });
+
+
+           // create empty user chats on firestore
+           await setDoc(doc(db, "userChats", res.user.uid), {});
+           alert("User signed up successfully")
+           navigate('/home')
+ 
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+          }
+        });
+      });
+
+
           
         }
         catch(err)
         {
-          console.log("error " ,err.code)
+         
           if(err.code==='auth/email-already-in-use')
           setErr("Email already in use..! Try with another one")
         }
@@ -104,7 +103,7 @@ function SignUp() {
       {/* Pw*/}
         <div className="row mb-4">
           <div className=" form-floating">
-            <input type="text" className="form-control border border-2 border-secondary" placeholder="password"  {...register("password", { required: "* Password is required", minLength: { value: 6, message: "* Password must be atleast 6 characters" }, maxLength: { value: 12, message: "* Password cannot exceed more than 12 characters" }})}/>
+            <input type="password" className="form-control border border-2 border-secondary" placeholder="password"  {...register("password", { required: "* Password is required", minLength: { value: 6, message: "* Password must be atleast 6 characters" }, maxLength: { value: 12, message: "* Password cannot exceed more than 12 characters" }})}/>
             <label  className="form-label ms-3">Password</label>
             {errors.password  && <p role="alert" className='text-danger p-0 m-0'>{errors.password.message}</p>}
           </div>
