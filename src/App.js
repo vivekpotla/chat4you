@@ -3,8 +3,13 @@ import SignUp from './components/SignUp';
 import { Home } from './components/Home';
 import Login from './components/Login';
 import {Link, Route ,Routes} from 'react-router-dom'
+import { AuthContext } from './context/AuthContext';
+import { useContext } from 'react';
 
 function App() {
+
+  const {currentUser} = useContext(AuthContext)
+  console.log("current user from app.js" , currentUser)
   return (
     <div className="App">
      

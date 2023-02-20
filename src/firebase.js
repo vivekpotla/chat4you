@@ -1,7 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
+import { getAuth,createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage, ref } from "firebase/storage";
+//require('dotenv').config();
 const firebaseConfig = {
   apiKey: "AIzaSyDaC6HUDFzRBhUL0bKCj3zrG5WNMLE1WLU",
   authDomain: "chat4you-64.firebaseapp.com",
@@ -11,7 +12,8 @@ const firebaseConfig = {
   appId: "1:367347668614:web:f66fa90ac21c76a96ca307",
   measurementId: "G-WH0YCYC50B"
 };
-
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const app = initializeApp(firebaseConfig);
+export const auth=getAuth()
+export const storage= getStorage()
+export const db= getFirestore()

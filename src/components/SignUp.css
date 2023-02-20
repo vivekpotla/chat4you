@@ -1,5 +1,9 @@
     
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
     .signupbody{
         background-color: rgb(114, 180, 189);
         width:100%;
