@@ -1,8 +1,38 @@
 
-.loginbody{
-    background-color: rgb(114, 180, 189);
-    width:100%;
+/* .loginbody{
+    
+    display:block;
+    width:100%; 
     height:100%;
-    padding: 0;
-    margin:0;
+    object-fit: cover;
+} */
+.logingif{
+  border-radius: 50%;
+  width: 25rem;
+  margin-left: 30rem;
+  border: 5px solid black;
+}
+
+form{
+    /* background-image: linear-gradient(to right, blue ,pink);
+    opacity: 0.5; */
+    overflow: hidden;
+  position: relative;
+}
+.formimg{
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.formcontent{
+    position: relative;
+}
+
+.sbtn:hover{
+    background-color: rgb(204, 181, 208);
+    
 }

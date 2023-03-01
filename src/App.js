@@ -8,8 +8,8 @@ import { useContext } from 'react';
 
 function App() {
 
-  const {currentUser} = useContext(AuthContext)
-  console.log("current user from app.js" , currentUser)
+  // const {currentUser} = useContext(AuthContext)
+  // console.log("current user from app.js" , currentUser)
   return (
     <div className="App">
      

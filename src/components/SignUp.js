@@ -84,7 +84,7 @@ function SignUp() {
   return (
     <div className='signupbody pt-5 pb-5'>
       <div className="text-center lead">
-        <h1 className='heading w-25 mx-auto border rounded-pill '>chat4you</h1>
+        <h1 className='heading w-25 mx-auto border rounded-pill '>THE CIRCLE</h1>
         <h6>Full-Stack Development Courses</h6> 
       </div>
 

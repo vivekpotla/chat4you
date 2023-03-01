@@ -5,8 +5,9 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../firebase.js'
+import formbg from "./images/formbg.png"
+import logingif from "./images/logingif.gif"
 import { GoAlert } from "react-icons/go";
-
 function Login() {
 
   const [err, setErr] = useState(false)
@@ -47,18 +48,16 @@ function Login() {
     <div className='loginbody pt-5 pb-5'>
       {/* To be removed after development */}
       <span><Link to='/home' >GO to Home</Link></span>
-    <div className="text-center lead">
-      <h1 className='heading w-25 mx-auto border rounded-pill '>chat4you</h1>
-    
-    </div>
-
-    <h3 className="text-center">Login</h3>
-
-    <form className="signupform  m-5 mx-auto border border-2 border-secondary p-5 " onSubmit={handleSubmit(onFormSubmit)} >
-
+      <div className='d-flex '>
+      <img src={logingif} className='m-5 h-50 logingif'/>
+      <form className="signupform  m-5 mx-auto  p-5 w-25 " onSubmit={handleSubmit(onFormSubmit)} >
+      
+        <img src={formbg} className='formimg'/>
+        <div className='formcontent'>
+      <h3 className='text-center'>Login</h3>
    
     {/* Username and Password */}
-       <div className="row mb-4 m-2">
+       <div className="row mb-4 m-2 ">
           <div className=" form-floating ">
             <input type="email" className="form-control border border-2 border-secondary" id="email" placeholder="email" {...register("email",{required:true})}/>
             <label  className="form-label ms-3">Email</label>
@@ -74,13 +73,13 @@ function Login() {
           
         </div>
 
-      <div className="mt-4 text-end">
-       Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm btn-primary  ">SignUp</button></Link>
+      <div className="mt-4 ">
+       Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm text-dark ms-2 " style={{backgroundColor:'rgb(204, 181, 208)'}}>SignUp</button></Link>
       </div>
 
       {/* Submit Button */}
       <div className="text-center mt-5 ms-4 mb-4">
-        <button type="submit" className="btn btn-lg btn-success  ">Login</button>
+        <button type="submit" className="btn ps-5 pe-5 lbtn btn-lg text-white shadow"  style={{backgroundColor:'rgb(70,70,98)'}}>Login</button>
       </div>
       {err && 
          
@@ -88,8 +87,9 @@ function Login() {
             <GoAlert className='mb-1' /> {err}
         </Alert>
         }
+        </div>
     </form>
-    
+    </div>
 </div>
   )
 }
