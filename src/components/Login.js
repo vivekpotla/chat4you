@@ -50,7 +50,7 @@ function Login() {
       <span><Link to='/home' >GO to Home</Link></span>
       <div className='d-flex '>
       <img src={logingif} className='m-5 h-50 logingif'/>
-      <form className="signupform  m-5 mx-auto  p-5 w-25 " onSubmit={handleSubmit(onFormSubmit)} >
+      <form className="signupform  m-5 mx-auto  p-5 w-25 shadow-lg" onSubmit={handleSubmit(onFormSubmit)} >
       
         <img src={formbg} className='formimg'/>
         <div className='formcontent'>
@@ -73,8 +73,8 @@ function Login() {
           
         </div>
 
-      <div className="mt-4 ">
-       Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm text-dark ms-2 " style={{backgroundColor:'rgb(204, 181, 208)'}}>SignUp</button></Link>
+      <div className="mt-4 ms-4">
+       Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm text-dark ms-2 " style={{backgroundColor:'rgb(255, 229, 247)'}}>SignUp</button></Link>
       </div>
 
       {/* Submit Button */}

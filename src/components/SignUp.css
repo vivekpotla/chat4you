@@ -11,17 +11,20 @@ input::-webkit-inner-spin-button {
         padding: 0;
         margin:0;
     } */
+    input{
+     width: 20px;
+    }
     .signupform{
     width: 40%;
-    border-radius: 20px;
+    
     background-color: white;
      
       
     }
     .heading{
-        font-family: 'Prompt', sans-serif; 
+        font-family: Georgia, 'Times New Roman', Times, serif; 
         background-color: white; 
- 
+        color: rgb(13, 13, 62);
     }
 
     .formimg{
