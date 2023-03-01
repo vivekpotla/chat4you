@@ -4,13 +4,13 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-    .signupbody{
+    /* .signupbody{
         
         width:100%;
         height:100%;
         padding: 0;
         margin:0;
-    }
+    } */
     .signupform{
     width: 40%;
     border-radius: 20px;
@@ -18,17 +18,21 @@ input::-webkit-inner-spin-button {
      
       
     }
-    .c1{
-      margin-right:20px;
-    }
- 
-    .img1{
-      width:50px;
-      height: 50px;
-      border-radius: 50%;
-    }
     .heading{
         font-family: 'Prompt', sans-serif; 
         background-color: white; 
  
+    }
+
+    .formimg{
+      opacity: 0.5;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .formcontent{
+        position: relative;
     }

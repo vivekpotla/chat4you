@@ -8,6 +8,7 @@ import {auth,storage ,db} from '../firebase.js'
 import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { AiOutlinePicture,AiOutlineMail } from "react-icons/ai";
 import { doc, setDoc } from "firebase/firestore";
+import formbg from "./images/formbg.png"
 import 'firebase/firestore' 
 import 'firebase/auth'
 function SignUp() {
@@ -84,24 +85,22 @@ function SignUp() {
   return (
     <div className='signupbody pt-5 pb-5'>
       <div className="text-center lead">
-        <h1 className='heading w-25 mx-auto border rounded-pill '>THE CIRCLE</h1>
-        <h6>Full-Stack Development Courses</h6> 
+        <h1 className='heading w-25 mx-auto border rounded-pill '>THE CIRCLE</h1> 
       </div>
-
+      <form className="signupform  mt-5 mx-auto border border-2 border-secondary p-5" onSubmit={handleSubmit(onFormSubmit)} >
+      <img src={formbg} className='formimg'/>
+      <div className='formcontent'>
       <h3 className="text-center">Sign Up</h3>
-     
-      <form className="signupform  m-5 mx-auto border border-2 border-secondary p-5 " onSubmit={handleSubmit(onFormSubmit)} >
-
       {/* UserName */}
-        <div className="row mb-4">
-          <div className=" form-floating ">
+        <div className="row mb-2">
+          <div className="form-floating ">
             <input type="text" className="form-control border border-2 border-secondary" id="username" placeholder="username" {...register("username",{required:true})}/>
             <label  className="form-label ms-3">UserName</label>
           </div>
           {errors.username?.type === 'required' && <p role="alert" className='text-danger'>* Username is required</p>}
          </div>
       {/* Pw*/}
-        <div className="row mb-4">
+        <div className="row mb-2">
           <div className=" form-floating">
             <input type="password" className="form-control border border-2 border-secondary" placeholder="password"  {...register("password", { required: "* Password is required", minLength: { value: 6, message: "* Password must be atleast 6 characters" }, maxLength: { value: 12, message: "* Password cannot exceed more than 12 characters" }})}/>
             <label  className="form-label ms-3">Password</label>
@@ -109,7 +108,7 @@ function SignUp() {
           </div>
           
         </div>
-        <div className='row mb-4'>
+        <div className='row mb-2'>
           <div className="form-floating">
               <input type="number" className="form-control border border-2 border-secondary" placeholder="Mobile No.(+91)" {...register("phoneNumber",{required:true})}/>
               <label  className="form-label ms-3">Mobile No.</label>
@@ -118,9 +117,9 @@ function SignUp() {
             {errors.phoneNumber?.type === 'required' && <p role="alert" className='text-danger'>* Mobile number is required</p>}
         </div>
 
-        <div className="row mb-4">
+        <div className="row mb-2">
           <div className="col-2">
-          <AiOutlineMail size='lg' className='mx-auto'/>
+          <AiOutlineMail size='md' className='mx-auto'/>
           </div>
           <div className="col form-floating">
             <input type="email" className="form-control border border-2 border-secondary " placeholder="email" id="email" {...register("email",{required:true})}/>
@@ -130,7 +129,7 @@ function SignUp() {
         </div>
         <div className="row">
           <div className="col-2">
-            <AiOutlinePicture size='lg' className='mx-auto'/>
+            <AiOutlinePicture size='md' className='mx-auto'/>
           </div>
           <div className="col ">
             <input type="file" className="form-control border border-2 border-secondary  p-2" accept="image/png, image/jpeg,image/jpg" placeholder="Profile Photo" id="Image" {...register("file",{required:true})}/>
@@ -138,20 +137,20 @@ function SignUp() {
           {errors.file?.type === 'required' && <p role="alert" className='text-danger'>* Upload a photo</p>}
         </div>
 
-        <div className="mt-5 text-end">
-         Already a user ?   <Link to='/login'><button type="submit" className="btn btn-sm btn-primary  ">Login</button></Link>
+        <div className="mt-3 text-end">
+         Already a user ?   <Link to='/login'><button type="submit" className="btn btn-sm text-dark "  style={{backgroundColor:'rgb(204, 181, 208)'}}>Login</button></Link>
         </div>
 
         {/* Submit Button */}
-        <div className="text-center mt-5 ms-4 mb-3">
-          <button type="submit" className="btn btn-lg btn-success  ">Create An Account</button>
+        <div className="text-center mt-3 ms-4 mb-2">
+          <button type="submit" className="btn btn-lg text-light" style={{backgroundColor:'rgb(70,70,98)'}}>Create An Account</button>
         </div>
         {err && 
           <Alert  variant='danger'>
           {err}
         </Alert>
         }
-
+      </div>
       </form>
 </div>
   )
