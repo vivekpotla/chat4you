@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsSearch } from "react-icons/bs";
+import './Search.css'
 function search() {
   return (
     <div className='search d-flex justify-content-around  my-auto'>

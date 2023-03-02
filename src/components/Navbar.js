@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
+import './Navbar.css'
 function navbar() {
   return (
     <div className='sidenavbar'>

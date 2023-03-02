@@ -9,8 +9,9 @@
 }
 .message.owner>.messageContent>p{
    
-        background-color: rgb(99, 99, 220);
-        color: white;
+        background-color: rgb(249, 230, 237);
+        /* background-image: linear-gradient(to right,pink, white); */
+        color: black;
         border-radius: 10px 0px 10px 10px;
 }
 .messageInfo>img{

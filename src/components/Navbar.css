@@ -1,0 +1,25 @@
+/* side navbar styles */
+.sidenavbar{
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: #192a54;
+    overflow: hidden;
+}
+.logo{
+    font-size: large;
+    font-weight: bold;
+}
+.user{
+    gap: 10px;
+    display: flex;
+}
+.navimg{
+    width: 33px;
+    height: 33px;
+    object-fit: cover;
+    border-radius: 50%;
+}
