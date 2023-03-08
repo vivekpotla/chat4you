@@ -7,7 +7,7 @@
    }
    
 .hcontainer{
-    border: 1px solid #B9E0FF ;
+    border: 5px solid #4a5a82;
     width: 65%;
     height: 80%;
     display:flex;
@@ -19,67 +19,9 @@
 }
 .sidebar{
     flex:1;
-    border-right: 1px solid white;
-    background-color: #DFF6FF;
-}
-/* side navbar styles */
-.sidenavbar{
-    display: flex;
-    align-items: center;
-    color: white;
-    height: 50px;
-    padding: 10px;
-    justify-content: space-between;
-    background-color: #5D8BF4;
-}
-.logo{
-    font-size: large;
-    font-weight: bold;
-}
-.user{
-    gap: 10px;
-    display: flex;
-}
-.navimg{
-    width: 33px;
-    height: 33px;
-    object-fit: cover;
-    border-radius: 50%;
+    border-right: 1px solid rgb(113, 110, 110);
+    background-color: #ffffff;
 }
 
-/* sidebar search styles */
-.searchinput ,.search{
-    background-color: transparent;
-    border: none;
-    color: black;
-    margin: 2px;
-    width: 100%;
-    padding: 5px;
-    outline: none;
-}
-.searchimg{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
 
-.chats{
-    display: flex;
-    cursor: pointer;
-    padding: 1px;
-    gap: 10px;
-    align-items: center;
-    border-bottom: 1px solid white;
-}
 
-.chats:hover{
-    background-color: #7579E7;
-}
-.username{
- font-size: 15px;
- font-weight: bold;
-}
-.msg{
-    font-size: 13px;
-}

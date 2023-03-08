@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Chats.css'
 function chats() {
   return (
     <div className=''>
