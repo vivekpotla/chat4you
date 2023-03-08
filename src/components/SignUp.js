@@ -20,7 +20,8 @@ function SignUp() {
     const displayName =userCredObj.username
     const email = userCredObj.email
     const password = userCredObj.password
-    const file = userCredObj.file
+    const file = userCredObj.file[0]
+    console.log('file is' , file)
     const phoneNumber=userCredObj.phoneNumber
     console.log(userCredObj);
     try{
@@ -94,7 +95,7 @@ function SignUp() {
       {/* UserName */}
         <div className="row mb-2">
           <div className="form-floating ">
-            <input type="text" className="form-control border border-2 border-secondary" id="username" placeholder="username" {...register("username",{required:true})}/>
+            <input type="username" className="form-control border border-2 border-secondary" id="username" placeholder="username" {...register("username",{required:true})}/>
             <label  className="form-label ms-3">UserName</label>
           </div>
           {errors.username?.type === 'required' && <p role="alert" className='text-danger'>* Username is required</p>}
@@ -132,7 +133,7 @@ function SignUp() {
             <AiOutlinePicture size='md' className='mx-auto'/>
           </div>
           <div className="col ">
-            <input type="file" className="form-control border border-2 border-secondary  p-2" accept="image/png, image/jpeg,image/jpg" placeholder="Profile Photo" id="Image" {...register("file",{required:true})}/>
+            <input type="file" className="form-control border border-2 border-secondary  p-2" accept="image/*" placeholder="Profile Photo" id="Image" {...register("file",{required:true})}/>
           </div>
           {errors.file?.type === 'required' && <p role="alert" className='text-danger'>* Upload a photo</p>}
         </div>
