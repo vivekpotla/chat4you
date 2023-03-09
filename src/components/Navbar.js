@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {FiLogOut} from 'react-icons/fi'
 import './Navbar.css'
-import { Button } from 'bootstrap'
-
+import {Button} from 'react-bootstrap'
+import {signOut} from 'firebase/auth'
+import {auth} from '../firebase'
 function navbar() {
   return (
     <div className='sidenavbar'>
