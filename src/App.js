@@ -8,15 +8,6 @@ import { useContext } from 'react';
 
 function App() {
 
-  // const {currentUser} = useContext(AuthContext)
-  // console.log("current user from app.js" , currentUser)
-  
-  // const ProtectedRoute =({children})=>{
-  //   if(!currentUser){
-  //     return <Navigate to='login'/>
-  //   }
-  // }
-  
   
   
   return (
