@@ -33,6 +33,7 @@ function Login() {
           displayName: user.displayName,
           photoURL: user.photoURL
         }
+        localStorage.setItem("username", JSON.stringify(StoredUser))
         let actionObj = login(StoredUser)
         console.log("payload", actionObj.payload)
         dispatch(actionObj)
@@ -84,7 +85,7 @@ function Login() {
         </div>
 
       <div className="mt-4 ms-4">
-       Not having an account ?  <Link to='/signup'><button type="submit" className="btn btn-sm text-dark ms-2 " style={{backgroundColor:'rgb(255, 229, 247)'}}>SignUp</button></Link>
+       Not having an account ?  <Link to='/signup' className="btn btn-sm text-dark ms-2 ">SignUp</Link>
       </div>
 
       {/* Submit Button */}

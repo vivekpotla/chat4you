@@ -9,11 +9,11 @@ function Search() {
   const [username,setUsername]=useState("")
   const [user,setUser]=useState(null)
   const [err,setErr]=useState(false)
-  let currentUser = useSelector(state => state.user[0])
+  //let currentUser = useSelector(state => state.user[0])
+  let currentUser =JSON.parse(localStorage.getItem("username"))
   const handleSelect =async()=>{
     //check if the chats collection for two users exist or not and create new one if no
-   
-    console.log("searched user " , user)
+   console.log("searched user " , user)
     console.log("current user ", currentUser)
     const combinedId=
     currentUser.uid > user.uid
@@ -25,24 +25,28 @@ function Search() {
         //create chat in chats collection
         await setDoc(doc(db,"chats",combinedId),{messages:[]})
         //create user chats in firestore
-        await updateDoc(doc(db,"userchats",currentUser.uid),{
-          [combinedId.uid+"userInfo"]:{
+        await updateDoc(doc(db,"userChats",currentUser.uid),{
+          [combinedId+".userInfo"]:{
             uid:user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
           },
-          [combinedId+"date"]:serverTimestamp()
+          [combinedId+".date"]:serverTimestamp()
         })
-        await updateDoc(doc(db,"userchats",user.uid),{
-          [combinedId.uid+"userInfo"]:{
+        await updateDoc(doc(db,"userChats",user.uid),{
+          [combinedId+".userInfo"]:{
             uid:currentUser.uid,
             displayName: currentUser.displayName,
             photoURL: currentUser.photoURL
           },
-          [combinedId+"date"]:serverTimestamp()
+          [combinedId+".date"]:serverTimestamp()
         })
       }
-    }catch(err){}
+    }catch(err){
+      console.log(err)
+    }
+    setUser(null)
+    setUsername("")
   }
   const handleSearch =async()=>{
     const q=query(collection(db,"users"), where("displayName","==", username))
@@ -61,7 +65,7 @@ function Search() {
   return (
     <div className='search justify-content-around  my-auto'>
      <div className='d-flex'>
-      <input type='text' className='searchinput' placeholder='Tap to search' onKeyDown={handleKey} onChange={e=>setUsername(e.target.value)}/>
+      <input type='text' className='searchinput' placeholder='Tap to search' onKeyDown={handleKey} onChange={e=>setUsername(e.target.value)} value={username}/>
       <button className='my-auto border-0 btn btn-transparent' onClick={handleSearch}><BsSearch className='my-auto border-0 '/></button>
       </div>
   
