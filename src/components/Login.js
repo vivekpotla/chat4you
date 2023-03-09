@@ -8,25 +8,35 @@ import {auth} from '../firebase.js'
 import formbg from "./images/formbg.png"
 import logingif from "./images/logingif.gif"
 import { GoAlert } from "react-icons/go";
-function Login() {
+import { login } from '../slices/userSlice'
 
+import { useDispatch,useSelector } from 'react-redux'
+
+function Login() {
+  let dispatch =useDispatch();
   const [err, setErr] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate=useNavigate()
   const onFormSubmit = (userCredObj) => {
       let email= userCredObj.email;
       let password=userCredObj.password
-      console.log(userCredObj)
 
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-        // Signed in successfully
-        //console.log("User logged in " , userCredential)
         const user = userCredential.user;
+
         console.log("Login successful \nLogged in User is " , user.displayName)
         alert(`Welcome back ${user.displayName} ..!`)
         navigate('/home')
-       
-        // ...
+        //updating user in store
+        let StoredUser ={
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL
+        }
+        let actionObj = login(StoredUser)
+        console.log("payload", actionObj.payload)
+        dispatch(actionObj)
+
 
       })
       .catch((error) => {

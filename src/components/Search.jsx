@@ -2,18 +2,19 @@ import React, { useContext, useState } from 'react'
 import { BsSearch } from "react-icons/bs";
 import { collection, query, where, getDocs, getDoc, setDoc,doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import {db} from '../firebase'
-import {AuthContext} from '../context/AuthContext'
+import { useDispatch, useSelector } from 'react-redux'
 import './Search.css'
 import './Chats.css'
 function Search() {
   const [username,setUsername]=useState("")
   const [user,setUser]=useState(null)
   const [err,setErr]=useState(false)
-  const {currentUser} =useContext(AuthContext) 
+  let currentUser = useSelector(state => state.user[0])
   const handleSelect =async()=>{
     //check if the chats collection for two users exist or not and create new one if no
-    console.log(currentUser)
-    console.log(user)
+   
+    console.log("searched user " , user)
+    console.log("current user ", currentUser)
     const combinedId=
     currentUser.uid > user.uid
     ? currentUser.uid + user.uid
