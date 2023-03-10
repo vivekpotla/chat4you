@@ -3,14 +3,14 @@ export const userSlice = createSlice({
     name: 'user',
     initialState:[],
     reducers: {
-        login: (state, action) => {   
+        login: (state, action) => { 
             
-           
+            if(state.length) state.pop()  
             state.push(action.payload)
         },
         logout:(state,action)=>{
 
-            state ={}
+            state.pop()
             
         }
     },

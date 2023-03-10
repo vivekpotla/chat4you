@@ -3,15 +3,19 @@ import { BsSearch } from "react-icons/bs";
 import { collection, query, where, getDocs, getDoc, setDoc,doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import {db} from '../firebase'
 import { useDispatch, useSelector } from 'react-redux'
+import { onclick } from '../slices/chatSlice';
 import './Search.css'
 import './Chats.css'
 function Search() {
   const [username,setUsername]=useState("")
   const [user,setUser]=useState(null)
   const [err,setErr]=useState(false)
+  let dispatch=useDispatch()
   //let currentUser = useSelector(state => state.user[0])
   let currentUser =JSON.parse(localStorage.getItem("username"))
-  const handleSelect =async()=>{
+  const handleSelect =async(u)=>{
+    let actionObj = onclick(user);
+    dispatch(actionObj);
     //check if the chats collection for two users exist or not and create new one if no
    console.log("searched user " , user)
     console.log("current user ", currentUser)
@@ -70,7 +74,7 @@ function Search() {
       </div>
   
       {err && <span>User Not Found!</span>}
-      {user && <div className='chats' onClick={handleSelect}>
+      {user && <div className='userchats' onClick={()=>handleSelect(user)}>
         <img  src={user.photoURL} className='searchimg'/>
       <div className='username'>
         <span>{user.displayName}</span>

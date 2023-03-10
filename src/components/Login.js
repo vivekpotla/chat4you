@@ -23,10 +23,9 @@ function Login() {
 
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         const user = userCredential.user;
-
+        navigate('/home')
         console.log("Login successful \nLogged in User is " , user.displayName)
         alert(`Welcome back ${user.displayName} ..!`)
-        navigate('/home')
         //updating user in store
         let StoredUser ={
           uid: user.uid,
@@ -35,9 +34,8 @@ function Login() {
         }
         localStorage.setItem("username", JSON.stringify(StoredUser))
         let actionObj = login(StoredUser)
-        console.log("payload", actionObj.payload)
         dispatch(actionObj)
-
+        
 
       })
       .catch((error) => {
@@ -57,8 +55,6 @@ function Login() {
   return (
 
     <div className='loginbody pt-5 pb-5'>
-      {/* To be removed after development */}
-      <span><Link to='/home' >GO to Home</Link></span>
       <div className='d-flex '>
       <img src={logingif} className='m-5 h-50 logingif'/>
       <form className="signupform  m-5 mx-auto  p-5 w-25 shadow-lg" onSubmit={handleSubmit(onFormSubmit)} >
