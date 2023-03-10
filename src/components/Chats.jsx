@@ -28,17 +28,17 @@ function Chats() {
         let actionObj = onclick(u);
         dispatch(actionObj);
       }
-
+      console.log(Object.entries(chats))
   return (
     <div>
       {currentUser!=="null" && 
       <>
-         {Object.entries(chats)?.map((chat)=>(
+         {Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
         <div className='userchats ps-2 border-bottom' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
         <img src={chat[1].userInfo.photoURL} className='searchimg' alt=""/>
         <div className='mt-3'>
         <span className='username'>{chat[1].userInfo.displayName}</span>
-        <p className='msg'>{chat[1].userInfo.LastMessage?.text}</p>
+        <p className='msg'>{chat[1].lastMessage?.text}</p>
         </div>
       </div>
       ))}
