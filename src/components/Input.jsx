@@ -16,7 +16,7 @@ function Input() {
   const [text,setText]=useState("")
   const [img,setImg]=useState(null)
   const handleSend=async()=>{
-
+    if(text){
     if(img){
       const storageRef = ref(storage, uuid());
       await uploadBytesResumable(storageRef, img).then(() => {
@@ -56,6 +56,7 @@ function Input() {
     });
     setText("")
     setImg(null)
+  }
 }
   return (
     <div className='input'>
@@ -66,7 +67,7 @@ function Input() {
         <label htmlFor='file' className='mb-1'>
           <GrAttachment style={{cursor:"pointer"}} className='my-auto'/>
         </label>
-        <button className='sendButton' type='submit' onSubmit={e=>e.preventDefault()}onClick={handleSend}>Send</button>
+        <button type="submit"className='sendButton' onClick={handleSend}>Send</button>
       </div>
     </div>
   )
