@@ -2,10 +2,11 @@ import {  createSlice } from '@reduxjs/toolkit'
 export const chatSlice = createSlice({
     name: 'chatUser',
     initialState:[],
+
     reducers: {
         onclick: (state, action) => {   
             if(state.length) state.pop();
-            state.push(action.payload)
+            state.push(action.payload)     
         },
         removechat:(state,action)=>{
             state.pop();
