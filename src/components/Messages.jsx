@@ -20,16 +20,21 @@ function Messages() {
       unSub()
     }
   },[combinedId])
-  console.log(combinedId)
   return (
-      <>
+   
+      {messages.length===0 && 
+        <div>
+        No messages
+        </div>
+      }
       <div className='messages'>
-      { messages.length &&  messages.map(m=>(
+      { messages.length>0 &&  messages.map((m)=>(
         <Message message={m}/>
       ))
       }
       </div>
-      </>
+     
+    
     
   )
 }
