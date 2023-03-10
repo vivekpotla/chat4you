@@ -62,10 +62,10 @@ function Input() {
     <div className='input'>
       <input type="text"  placeholder='Type Something' onChange={e=>setText(e.target.value)} value={text}/>
       <div className='send '>
-        <GrGallery style={{cursor:"pointer"}}/>
+        <GrAttachment style={{cursor:"pointer"}}/>
         <input type="file" name="" id="file" style={{display:"none"}} onChange={e=>setImg(e.target.files[0])}/>
         <label htmlFor='file' className='mb-1'>
-          <GrAttachment style={{cursor:"pointer"}} className='my-auto'/>
+          <GrGallery style={{cursor:"pointer"}} className='my-auto'/>
         </label>
         <button type="submit"className='sendButton' onClick={handleSend}>Send</button>
       </div>
