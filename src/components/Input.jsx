@@ -1,8 +1,8 @@
 import { arrayUnion, Timestamp, updateDoc, doc, serverTimestamp } from 'firebase/firestore';
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { GrAttachment ,GrGallery} from "react-icons/gr";
-import { useDispatch, useSelector } from 'react-redux'
-import {auth,storage} from '../firebase.js'
+import {  useSelector } from 'react-redux'
+import {storage} from '../firebase.js'
 import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import {v4 as uuid} from "uuid"
 import {db} from '../firebase'

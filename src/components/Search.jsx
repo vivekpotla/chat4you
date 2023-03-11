@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { BsSearch } from "react-icons/bs";
 import { collection, query, where, getDocs, getDoc, setDoc,doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import {db} from '../firebase'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { onclick } from '../slices/chatSlice';
 import './Search.css'
 import './Chats.css'
@@ -64,7 +64,7 @@ function Search() {
     }
   }
   const handleKey= e=>{
-    e.code == "Enter" && handleSearch();
+    e.code === "Enter" && handleSearch();
   }
   return (
     <div className='search justify-content-around  my-auto'>
@@ -75,7 +75,7 @@ function Search() {
   
       {err && <span>User Not Found!</span>}
       {user && <div className='userchats' onClick={()=>handleSelect(user)}>
-        <img  src={user.photoURL} className='searchimg'/>
+        <img  src={user.photoURL} className='searchimg' alt='user'/>
       <div className='username'>
         <span>{user.displayName}</span>
       </div>

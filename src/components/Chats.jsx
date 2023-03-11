@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Chats.css'
 import {db} from '../firebase'
 import { doc, onSnapshot } from "firebase/firestore";
-import { useDispatch,useSelector } from 'react-redux' 
+import { useDispatch} from 'react-redux' 
 import { onclick } from '../slices/chatSlice';
 
 function Chats() {
