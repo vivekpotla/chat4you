@@ -63,7 +63,7 @@ function Input() {
       <input type="text"  placeholder='Type Something' onChange={e=>setText(e.target.value)} value={text}/>
       <div className='send '>
         <GrAttachment style={{cursor:"pointer"}}/>
-        <input type="file" name="" id="file" style={{display:"none"}} onChange={e=>setImg(e.target.files[0])}/>
+        <input type="file" accept="image/*"  id="file" style={{display:"none"}} onChange={e=>setImg(e.target.files[0])}/>
         <label htmlFor='file' className='mb-1'>
           <GrGallery style={{cursor:"pointer"}} className='my-auto'/>
         </label>
