@@ -3,11 +3,12 @@ import SignUp from './components/SignUp';
 import { Home } from './components/Home';
 import Login from './components/Login';
 import {Navigate, Route ,Routes} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 
 function App() {
     
-     let loggedInUser = JSON.parse(localStorage.getItem('username'))
+     let loggedInUser = useSelector((state)=>(state.user[0]))
      console.log("Logged in user " , (loggedInUser))
   return (
 
@@ -16,16 +17,16 @@ function App() {
     <Routes>
     <Route path="/" element={<Login/>} />
     
-      {loggedInUser!==null && 
+      {(loggedInUser!==null && loggedInUser!==undefined) && 
       <>
       <Route path="/home" element={<Home/>} />
       <Route path="/login" element={<Home/>} />
       </>
 
       }
-      {loggedInUser===null && 
+      { (loggedInUser===null||loggedInUser===undefined) && 
       <>
-       <Route path="/login" element={<Navigate to='/home' />} />
+       <Route path="/login" element={<Login/>} />
        <Route path="/home" element={<Navigate to='/login' />} />
        </>
      
