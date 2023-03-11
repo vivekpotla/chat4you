@@ -15,12 +15,20 @@ function App() {
       
     <Routes>
     <Route path="/" element={<Login/>} />
-      <Route path="/login" element={<Login/>} />
+    
       {loggedInUser!==null && 
+      <>
       <Route path="/home" element={<Home/>} />
+      <Route path="/login" element={<Home/>} />
+      </>
+
       }
       {loggedInUser===null && 
-      <Route path="/home" element={<Navigate to='/login' />} />
+      <>
+       <Route path="/login" element={<Navigate to='/home' />} />
+       <Route path="/home" element={<Navigate to='/login' />} />
+       </>
+     
       }
 
       <Route path="signup" element={<SignUp/>} />
