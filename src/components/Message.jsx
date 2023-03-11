@@ -17,7 +17,11 @@ const Message=({message})=> {
       </div>
       <div className='messageContent'>
         <p>{message.text}</p>
-        {message.img && <img src={message.img} />}
+        {message.img && 
+        <>
+        <img src={message.img} className='rounded' />  
+        {/* <button className="btn btn-rounded bg-primary text-white" data-toggle="modal" data-target="#myModal">view</button> */}
+        </>}
       </div>
     </div>
   )

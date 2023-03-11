@@ -23,7 +23,6 @@ function Login() {
 
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         const user = userCredential.user;
-        navigate('/home')
         console.log("Login successful \nLogged in User is " , user.displayName)
         alert(`Welcome back ${user.displayName} ..!`)
         //updating user in store
@@ -35,7 +34,7 @@ function Login() {
         localStorage.setItem("username", JSON.stringify(StoredUser))
         let actionObj = login(StoredUser)
         dispatch(actionObj)
-        
+        navigate('/home')
 
       })
       .catch((error) => {
