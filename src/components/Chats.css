@@ -18,5 +18,5 @@
     font-size: 13px;
 }
 .chats-box{
-overflow: auto;
+overflow: scroll;
 }
