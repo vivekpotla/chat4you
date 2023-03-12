@@ -30,7 +30,7 @@ function Chats() {
       }
       console.log(Object.entries(chats))
   return (
-    <div>
+    <div className="chats-box">
       {currentUser!=="null" && 
       <>
          {Object.entries(chats)?.sort((a,b)=>b[1].date-a[1].date).map((chat)=>(
